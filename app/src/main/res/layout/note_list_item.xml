@@ -1,64 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/note_card_background"
+    app:cardPreventCornerOverlap="true">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_marginRight="@dimen/margin"
-        android:layout_marginTop="@dimen/margin"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="0.2dp"
-        app:cardElevation="2dp"
-        app:cardPreventCornerOverlap="true">
+        android:padding="20dp">
 
-
-        <FrameLayout
-            android:id="@+id/view_unlocked"
-            android:layout_width="match_parent"
+        <!-- Note Title -->
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="vertical">
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/note_title_color"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            app:layout_constraintEnd_toStartOf="@+id/lock_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="My Important Note Title" />
 
+        <!-- Note Preview (First few lines of description) -->
+        <TextView
+            android:id="@+id/item_preview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="@color/note_preview_color"
+            android:textSize="14sp"
+            android:lineSpacingExtra="2dp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toStartOf="@+id/lock_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_title"
+            tools:text="This is a preview of the note content that will be displayed in the list item..." />
 
-            <LinearLayout
-                android:paddingBottom="@dimen/padding_large"
-                android:paddingLeft="@dimen/padding_large"
-                android:paddingRight="@dimen/padding_large"
-                android:paddingTop="@dimen/padding_large"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <!-- Date and Time -->
+        <TextView
+            android:id="@+id/item_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:textColor="@color/note_date_color"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintEnd_toStartOf="@+id/lock_indicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/item_preview"
+            tools:text="Dec 13, 2024 2:30 PM" />
 
+        <!-- Lock Indicator -->
+        <ImageView
+            android:id="@+id/lock_indicator"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock"
+            android:visibility="gone"
+            android:contentDescription="@string/encrypt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-                <com.an.customfontview.CustomTextView
-                    android:id="@+id/item_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
-                    android:textSize="@dimen/font_medium"
-                    app:textFontPath="fonts/montserrat_medium.otf" />
+        <!-- Note Category Indicator (colored bar) -->
+        <View
+            android:id="@+id/category_indicator"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="-16dp"
+            android:background="@color/note_category_color"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <com.an.customfontview.CustomTextView
-                    android:id="@+id/item_desc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
-                    android:textColor="@color/layout_item_desc"
-                    android:textSize="@dimen/font_small"
-                    app:textFontPath="fonts/montserrat_light.otf" />
-
-            </LinearLayout>
-
-
-        </FrameLayout>
-
-
-    </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

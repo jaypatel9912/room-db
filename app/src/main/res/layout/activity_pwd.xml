@@ -21,7 +21,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        <com.an.customfontview.CustomEditText
+        <EditText
             android:id="@+id/edit_pwd"
             android:drawableRight="@drawable/ic_pwd"
             android:layout_width="match_parent"
@@ -35,8 +35,7 @@
             android:paddingBottom="@dimen/padding_small"
             android:textColor="@color/edit_title"
             android:textCursorDrawable="@drawable/cursor_black"
-            android:textSize="@dimen/font_medium_large"
-            app:editFontPath="fonts/montserrat_light.otf" />
+            android:textSize="@dimen/font_medium_large" />
 
 
 

@@ -1,8 +1,7 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.room">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name="com.an.room.AppController"
+        android:name="com.room.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,10 +11,11 @@
 
 
         <activity
-            android:name="com.an.room.ui.activity.NotesListActivity"
+            android:name="com.room.ui.activity.NotesListActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,14 +24,16 @@
 
 
         <activity
-            android:name="com.an.room.ui.activity.AddNoteActivity"
+            android:name="com.room.ui.activity.AddNoteActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
         <activity
-            android:name="com.an.room.ui.activity.PwdActivity"
+            android:name="com.room.ui.activity.PwdActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
     </application>
 </manifest>

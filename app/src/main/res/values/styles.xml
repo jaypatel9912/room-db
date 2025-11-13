@@ -20,4 +20,9 @@
         <item name="titleTextColor">@color/layout_title</item>
     </style>
 
+    <style name="fab_rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
 </resources>

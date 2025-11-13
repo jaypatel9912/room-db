@@ -17,7 +17,7 @@
         android:paddingTop="@dimen/margin_xxlarge"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.an.customfontview.CustomEditText
+        <EditText
             android:id="@+id/edit_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,11 +27,10 @@
             android:inputType="textCapSentences|textMultiLine"
             android:textColor="@color/edit_title"
             android:textCursorDrawable="@drawable/cursor_black"
-            android:textSize="@dimen/font_medium_large"
-            app:editFontPath="fonts/montserrat_regular.otf" />
+            android:textSize="@dimen/font_medium_large" />
 
 
-        <com.an.customfontview.CustomEditText
+        <EditText
             android:id="@+id/edit_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,8 +42,7 @@
             android:inputType="textCapSentences|textMultiLine"
             android:textColor="@color/edit_title"
             android:textCursorDrawable="@drawable/cursor_black"
-            android:textSize="@dimen/font_medium"
-            app:editFontPath="fonts/montserrat_light.otf" />
+            android:textSize="@dimen/font_medium" />
 
 
         <LinearLayout
@@ -63,7 +61,7 @@
                 android:textColor="@color/layout_title"
                 android:textSize="@dimen/font_xmedium" />
 
-            <com.an.customfontview.CustomEditText
+            <EditText
                 android:id="@+id/edit_pwd"
                 android:drawableRight="@drawable/ic_pwd"
                 android:layout_width="match_parent"
@@ -77,14 +75,13 @@
                 android:textColor="@color/edit_title"
                 android:textCursorDrawable="@drawable/cursor_black"
                 android:textSize="@dimen/font_medium"
-                android:visibility="invisible"
-                app:editFontPath="fonts/montserrat_light.otf" />
+                android:visibility="invisible" />
 
 
         </LinearLayout>
 
 
-        <com.an.customfontview.CustomTextView
+        <TextView
             android:id="@+id/text_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,8 +89,7 @@
             android:layout_marginTop="@dimen/margin_xxxxxxxlarge"
             android:gravity="right"
             android:textColor="@color/edit_title"
-            android:textSize="@dimen/font_small"
-            app:textFontPath="fonts/montserrat_light.otf" />
+            android:textSize="@dimen/font_small" />
 
 
     </LinearLayout>

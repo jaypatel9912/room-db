@@ -13,4 +13,27 @@
     <color name="edit_title">#757575</color>
     <color name="delete_tine">#40212121</color>
     <color name="bg_lock">#99000000</color>
+
+    <!-- Modern Note List Colors -->
+    <color name="note_title_color">#1C1B1F</color>
+    <color name="note_preview_color">#49454F</color>
+    <color name="note_date_color">#79747E</color>
+    <color name="note_lock_color">#6750A4</color>
+    <color name="note_category_color">#6750A4</color>
+    <color name="note_card_background">#FFFBFE</color>
+
+    <!-- Modern Layout Colors -->
+    <color name="modern_bg_color">#FEF7FF</color>
+    <color name="modern_title_color">#1C1B1F</color>
+    <color name="modern_fab_color">#6750A4</color>
+    <color name="modern_empty_icon_color">#79747E</color>
+    <color name="modern_empty_title_color">#1C1B1F</color>
+    <color name="modern_empty_subtitle_color">#49454F</color>
+
+    <!-- Accent Colors for Different Note Types -->
+    <color name="accent_purple">#6750A4</color>
+    <color name="accent_blue">#0061A4</color>
+    <color name="accent_green">#006A6B</color>
+    <color name="accent_orange">#8C5000</color>
+    <color name="accent_red">#BA1A1A</color>
 </resources>

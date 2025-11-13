@@ -15,4 +15,8 @@
     <string name="pwd_title">Enter password</string>
     <string name="error_pwd">Incorrect password</string>
 
+    <string name="task_deleted">Note deleted</string>
+    <string name="task_updated">Note updated</string>
+    <string name="task_saved">Note saved</string>
+
 </resources>

@@ -1,111 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_layout"
+    android:background="@color/modern_bg_color"
     android:fitsSystemWindows="true">
-
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="@color/bg_layout"
+        android:layout_height="wrap_content"
+        android:background="@color/modern_bg_color"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/bg_layout"
-            android:backgroundTint="@color/bg_layout"
-            app:contentScrim="@color/bg_layout"
-
+            android:layout_height="120dp"
+            android:background="@color/modern_bg_color"
+            app:contentScrim="@color/modern_bg_color"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-
-            <com.an.customfontview.CustomTextView
+            <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
                 android:fitsSystemWindows="true"
                 android:text="@string/task_title"
-                android:textColor="@color/layout_title"
-                android:textSize="@dimen/font_xxlarge"
-                app:layout_collapseMode="pin"
-                app:textFontPath="fonts/montserrat_light.otf" />
-
-            <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/main.toolbar"-->
-            <!--app:title="@string/task_title"-->
-            <!--app:titleTextColor="@color/layout_title"-->
-            <!--app:titleTextAppearance="@style/Toolbar.TitleText"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="70dp"-->
-            <!--app:layout_collapseMode="parallax"-->
-            <!--/>-->
+                android:textColor="@color/modern_title_color"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                app:layout_collapseMode="pin" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-
     </com.google.android.material.appbar.AppBarLayout>
 
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin"
-        android:layout_marginRight="@dimen/margin_small"
-        android:orientation="vertical"
+        android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/task_list"
-            android:visibility="gone"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/margin_large" />
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
 
-        <com.an.customfontview.CustomTextView
-            android:id="@+id/empty_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:drawablePadding="@dimen/margin"
-            android:layout_marginLeft="@dimen/margin_xlarge"
-            android:layout_marginRight="@dimen/margin_xlarge"
-            android:layout_marginTop="@dimen/margin_xxxxxxxxlarge"
-            android:drawableTop="@drawable/ic_empty"
-            android:gravity="center"
-            android:text="@string/empty_notes"
-            android:textColor="@color/line"
-            android:textSize="@dimen/font_medium_large"
-            app:textFontPath="fonts/montserrat_light.otf" />
+            <!-- Notes List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/task_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp"
+                android:visibility="gone"
+                tools:visibility="visible"
+                tools:listitem="@layout/note_list_item"
+                tools:itemCount="5" />
 
-    </LinearLayout>
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible"
+                tools:visibility="gone">
 
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginBottom="24dp"
+                    android:alpha="0.6"
+                    android:src="@drawable/ic_empty"
+                    app:tint="@color/modern_empty_icon_color" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="No notes yet"
+                    android:textColor="@color/modern_empty_title_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/empty_notes"
+                    android:textColor="@color/modern_empty_subtitle_color"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="4dp"
+                    android:fontFamily="sans-serif" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/margin_xxlarge"
-        android:layout_marginRight="@dimen/margin_xlarge"
-        android:backgroundTint="@color/fab_color"
-        android:elevation="4dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/add_task_title"
         android:src="@drawable/ic_add"
-        app:backgroundTint="@color/fab_color"
-        app:borderWidth="2dp"
+        app:backgroundTint="@color/modern_fab_color"
+        app:tint="@android:color/white"
+        app:elevation="6dp"
         app:fabSize="normal"
-        app:layout_anchorGravity="bottom|center" />
-
+        app:shapeAppearanceOverlay="@style/fab_rounded" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
